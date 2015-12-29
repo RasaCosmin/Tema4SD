@@ -5,6 +5,7 @@
  */
 package webservice;
 
+import com.google.gson.Gson;
 import dao.UserDao;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -25,8 +26,9 @@ public class LoginWS {
     public String Login(@WebParam(name = "username") String username, @WebParam(name = "password") String password) {
         UserDao db = new UserDao();
         User u= db.Login(username, password);
+        Gson gson  = new Gson();
         if(u.getUsername()!=null)
-        return u.getRole();
+        return gson.toJson(u);
         else return "failed";
     }
 

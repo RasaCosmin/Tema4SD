@@ -94,4 +94,34 @@ public class PackageDao {
         
         return packages;
     }
+
+    public ArrayList PackageStatus(int packageId) {
+        ArrayList<Route> routes = new ArrayList<Route>();
+        
+        try{
+            Connection conn = DbUtil.getConnection();
+            String query = "Select * from Route where IdPackage=?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, packageId);
+                        
+            ResultSet rs = pstmt.executeQuery();
+            
+            while(rs.next())
+            {
+                Route route = new  Route();
+                route.setId(rs.getInt("Id"));
+                route.setIdPackage(rs.getInt("IdPackage"));              
+                route.setCity(rs.getString("City"));
+                route.setTime(rs.getString("Time"));
+                
+                routes.add(route);
+            }
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+        
+        return routes;
+    }
 }
