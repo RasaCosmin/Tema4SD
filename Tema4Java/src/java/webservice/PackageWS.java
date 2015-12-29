@@ -5,6 +5,7 @@
  */
 package webservice;
 
+import com.google.gson.Gson;
 import dao.PackageDao;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -21,9 +22,9 @@ public class PackageWS {
      * This is a sample web service operation
      */
     @WebMethod(operationName = "Search")
-    public String SearchPackage(@WebParam(name = "name") String name) {
+    public String GetClientPackage(@WebParam(name = "name") int clientId) {
        PackageDao db = new PackageDao();
-       models.Package p = db.GetClientPackage(1).get(0);
-       return "";
+       Gson gson  = new Gson();
+       return gson.toJson(db.GetClientPackage(1));
     }
 }
