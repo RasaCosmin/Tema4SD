@@ -10,21 +10,23 @@ namespace Tema4MvcApp.Controllers
     {
         public ActionResult Index()
         {
+            var role = Session["role"];
+
+            if(role == null)
+                return RedirectToAction("Index", "Login");
+
+            if (role.Equals("Administrator"))
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+            else
+            {
+                return RedirectToAction("Index", "User");
+            }
+
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+       
     }
 }

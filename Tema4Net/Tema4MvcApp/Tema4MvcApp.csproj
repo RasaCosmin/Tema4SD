@@ -198,16 +198,32 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PackageModel.cs" />
+    <Compile Include="Models\RouteModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\AdminService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\LoginWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PackageWebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -244,6 +260,18 @@
     <None Include="Service References\AdminService\configuration91.svcinfo" />
     <None Include="Service References\AdminService\configuration.svcinfo" />
     <None Include="Service References\AdminService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\LoginWebService\configuration91.svcinfo" />
+    <None Include="Service References\LoginWebService\configuration.svcinfo" />
+    <None Include="Service References\LoginWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\PackageWebService\configuration91.svcinfo" />
+    <None Include="Service References\PackageWebService\configuration.svcinfo" />
+    <None Include="Service References\PackageWebService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -285,6 +313,31 @@
     <Content Include="Service References\AdminService\Tema4MvcApp.AdminService.HelloWorldResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Service References\LoginWebService\LoginWS.wsdl" />
+    <None Include="Service References\LoginWebService\LoginWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\LoginWebService\Tema4MvcApp.LoginWebService.LoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\LoginWebService\Tema4MvcApp.LoginWebService.RegisterResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\PackageWebService\PackageWS.wsdl" />
+    <None Include="Service References\PackageWebService\PackageWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\PackageWebService\Tema4MvcApp.PackageWebService.getClientPackageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PackageWebService\Tema4MvcApp.PackageWebService.searchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PackageWebService\Tema4MvcApp.PackageWebService.verifyStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Client\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -302,6 +355,8 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AdminService\" />
+    <WCFMetadataStorage Include="Service References\LoginWebService\" />
+    <WCFMetadataStorage Include="Service References\PackageWebService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
