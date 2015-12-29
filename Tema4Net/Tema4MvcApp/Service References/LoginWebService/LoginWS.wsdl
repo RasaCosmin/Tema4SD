@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://webservice/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="LoginWS" targetNamespace="http://webservice/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/Tema4Java/LoginWS?xsd=1" namespace="http://webservice/" />
+    </xsd:schema>
+  </types>
+  <message name="Register">
+    <part name="parameters" element="tns:Register" />
+  </message>
+  <message name="RegisterResponse">
+    <part name="parameters" element="tns:RegisterResponse" />
+  </message>
+  <message name="Login">
+    <part name="parameters" element="tns:Login" />
+  </message>
+  <message name="LoginResponse">
+    <part name="parameters" element="tns:LoginResponse" />
+  </message>
+  <portType name="LoginWS">
+    <operation name="Register">
+      <input wsam:Action="http://webservice/LoginWS/RegisterRequest" message="tns:Register" />
+      <output wsam:Action="http://webservice/LoginWS/RegisterResponse" message="tns:RegisterResponse" />
+    </operation>
+    <operation name="Login">
+      <input wsam:Action="http://webservice/LoginWS/LoginRequest" message="tns:Login" />
+      <output wsam:Action="http://webservice/LoginWS/LoginResponse" message="tns:LoginResponse" />
+    </operation>
+  </portType>
+  <binding name="LoginWSPortBinding" type="tns:LoginWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Register">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Login">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="LoginWS">
+    <port name="LoginWSPort" binding="tns:LoginWSPortBinding">
+      <soap:address location="http://localhost:8080/Tema4Java/LoginWS" />
+    </port>
+  </service>
+</definitions>

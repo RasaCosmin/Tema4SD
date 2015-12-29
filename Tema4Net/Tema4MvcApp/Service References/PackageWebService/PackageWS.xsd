@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://webservice/" targetNamespace="http://webservice/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="getClientPackage" type="tns:getClientPackage" />
+  <xs:element name="getClientPackageResponse" type="tns:getClientPackageResponse" />
+  <xs:element name="search" type="tns:search" />
+  <xs:element name="searchResponse" type="tns:searchResponse" />
+  <xs:element name="verifyStatus" type="tns:verifyStatus" />
+  <xs:element name="verifyStatusResponse" type="tns:verifyStatusResponse" />
+  <xs:complexType name="verifyStatus">
+    <xs:sequence>
+      <xs:element name="packageId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="verifyStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getClientPackage">
+    <xs:sequence>
+      <xs:element name="name" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getClientPackageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="search">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="packageName" type="xs:string" />
+      <xs:element name="clientId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="searchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
