@@ -16,7 +16,7 @@ namespace Tema4MvcApp.Controllers
         {
             if (Request.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Home");
+                return LogOff();// RedirectToAction("Index", "Home");
             }
             return View();
         }

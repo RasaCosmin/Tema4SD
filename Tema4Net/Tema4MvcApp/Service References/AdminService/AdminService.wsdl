@@ -41,6 +41,7 @@
             <s:element minOccurs="1" maxOccurs="1" name="packageId" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="track" type="s:boolean" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -87,6 +88,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetPackgeById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPackgeByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackgeByIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="AddPackageSoapIn">
@@ -125,6 +140,12 @@
   <wsdl:message name="GetAllUserNamesSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllUserNamesResponse" />
   </wsdl:message>
+  <wsdl:message name="GetPackgeByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackgeById" />
+  </wsdl:message>
+  <wsdl:message name="GetPackgeByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackgeByIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="AdminServiceSoap">
     <wsdl:operation name="AddPackage">
       <wsdl:input message="tns:AddPackageSoapIn" />
@@ -149,6 +170,10 @@
     <wsdl:operation name="GetAllUserNames">
       <wsdl:input message="tns:GetAllUserNamesSoapIn" />
       <wsdl:output message="tns:GetAllUserNamesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackgeById">
+      <wsdl:input message="tns:GetPackgeByIdSoapIn" />
+      <wsdl:output message="tns:GetPackgeByIdSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="AdminServiceSoap" type="tns:AdminServiceSoap">
@@ -207,6 +232,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPackgeById">
+      <soap:operation soapAction="http://tempuri.org/GetPackgeById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="AdminServiceSoap12" type="tns:AdminServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -257,6 +291,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllUserNames">
       <soap12:operation soapAction="http://tempuri.org/GetAllUserNames" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackgeById">
+      <soap12:operation soapAction="http://tempuri.org/GetPackgeById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

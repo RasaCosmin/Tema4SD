@@ -23,7 +23,7 @@ public class PackageWS {
      * This is a sample web service operation
      */
     @WebMethod(operationName = "getClientPackage")
-    public String GetClientPackage(@WebParam(name = "name") int clientId) {
+    public String GetClientPackage(@WebParam(name = "clientId") int clientId) {
        PackageDao db = new PackageDao();
        ArrayList packages = db.GetClientPackage(clientId);
        Gson gson  = new Gson();

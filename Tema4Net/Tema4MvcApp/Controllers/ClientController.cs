@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,37 @@ namespace Tema4MvcApp.Controllers
         // GET: Client
         public ActionResult Index()
         {
-            return View();
+            var userId = Convert.ToInt32(Session["userId"]);
+
+            var packageService = new PackageWebService.PackageWSClient();
+            var result = packageService.getClientPackage(userId);
+            var packages = new List<PackageModel>();
+            if (!result.Equals("no element"))
+            {
+                packages = JsonConvert.DeserializeObject<List<PackageModel>>(result);
+            }
+            else
+            {
+                ViewBag.Mess = "You don't have any package!";
+            }
+
+            return View(packages);
+        }
+
+        public ActionResult Route(int id)
+        {
+            var packageService = new PackageWebService.PackageWSClient();
+            var result = packageService.verifyStatus(id);
+            var routes = new List<RouteModel>();
+            if (!result.Equals("no element"))
+            {
+                routes = JsonConvert.DeserializeObject<List<RouteModel>>(result);
+            }
+            else
+            {
+                ViewBag.Mess = "This package don't have any route";
+            }
+            return View(routes);
         }
 
         public ActionResult Register()

@@ -79,3 +79,4 @@ E:\OVI\Tema4SD\Tema4Net\Tema4MvcApp\bin\Microsoft.Owin.Security.Twitter.xml
 E:\OVI\Tema4SD\Tema4Net\Tema4MvcApp\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\OVI\Tema4SD\Tema4Net\Tema4MvcApp\obj\Debug\Tema4MvcApp.dll
 E:\OVI\Tema4SD\Tema4Net\Tema4MvcApp\obj\Debug\Tema4MvcApp.pdb
+E:\OVI\Tema4SD\Tema4Net\Tema4MvcApp\obj\Debug\Tema4MvcApp.csprojResolveAssemblyReference.cache

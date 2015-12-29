@@ -5,29 +5,28 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tema4MvcApp", "Tema4MvcApp\Tema4MvcApp.csproj", "{E708A9C9-42D4-44F3-9582-F105D71E2C68}"
 	ProjectSection(ProjectDependencies) = postProject
-		{4CCB4998-FC36-49C4-ADC6-81E23E1A1106} = {4CCB4998-FC36-49C4-ADC6-81E23E1A1106}
+		{CFE0EF87-B909-4B3E-A154-9EB309688252} = {CFE0EF87-B909-4B3E-A154-9EB309688252}
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Tema4NetServices", "C:\Tema4NetServices\", "{4CCB4998-FC36-49C4-ADC6-81E23E1A1106}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Tema4NetServices(1)", "..\Tema4NetServices\", "{CFE0EF87-B909-4B3E-A154-9EB309688252}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_64428"
-		Debug.AspNetCompiler.PhysicalPath = "C:\Tema4NetServices\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64428\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53592"
+		Debug.AspNetCompiler.PhysicalPath = "..\Tema4NetServices\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53592\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_64428"
-		Release.AspNetCompiler.PhysicalPath = "C:\Tema4NetServices\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64428\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53592"
+		Release.AspNetCompiler.PhysicalPath = "..\Tema4NetServices\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53592\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "64428"
-		SlnRelativePath = "C:\Tema4NetServices\"
-		DefaultWebSiteLanguage = "Visual C#"
+		VWDPort = "53592"
+		SlnRelativePath = "..\Tema4NetServices\"
 	EndProjectSection
 EndProject
 Global
@@ -40,10 +39,10 @@ Global
 		{E708A9C9-42D4-44F3-9582-F105D71E2C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E708A9C9-42D4-44F3-9582-F105D71E2C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E708A9C9-42D4-44F3-9582-F105D71E2C68}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4CCB4998-FC36-49C4-ADC6-81E23E1A1106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4CCB4998-FC36-49C4-ADC6-81E23E1A1106}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4CCB4998-FC36-49C4-ADC6-81E23E1A1106}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{4CCB4998-FC36-49C4-ADC6-81E23E1A1106}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{CFE0EF87-B909-4B3E-A154-9EB309688252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFE0EF87-B909-4B3E-A154-9EB309688252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFE0EF87-B909-4B3E-A154-9EB309688252}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFE0EF87-B909-4B3E-A154-9EB309688252}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,7 +21,7 @@ namespace Tema4MvcApp.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "User");
+                return RedirectToAction("Index", "Client");
             }
 
             return View();

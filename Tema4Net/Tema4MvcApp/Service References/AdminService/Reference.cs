@@ -56,6 +56,13 @@ namespace Tema4MvcApp.AdminService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllUserNames", ReplyAction="*")]
         System.Threading.Tasks.Task<Tema4MvcApp.AdminService.GetAllUserNamesResponse> GetAllUserNamesAsync(Tema4MvcApp.AdminService.GetAllUserNamesRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetPackgeByIdResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackgeById", ReplyAction="*")]
+        Tema4MvcApp.AdminService.GetPackgeByIdResponse GetPackgeById(Tema4MvcApp.AdminService.GetPackgeByIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPackgeById", ReplyAction="*")]
+        System.Threading.Tasks.Task<Tema4MvcApp.AdminService.GetPackgeByIdResponse> GetPackgeByIdAsync(Tema4MvcApp.AdminService.GetPackgeByIdRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -246,13 +253,17 @@ namespace Tema4MvcApp.AdminService {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
         public string time;
         
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public bool track;
+        
         public TrackPackageRequestBody() {
         }
         
-        public TrackPackageRequestBody(int packageId, string city, string time) {
+        public TrackPackageRequestBody(int packageId, string city, string time, bool track) {
             this.packageId = packageId;
             this.city = city;
             this.time = time;
+            this.track = track;
         }
     }
     
@@ -488,6 +499,74 @@ namespace Tema4MvcApp.AdminService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetPackgeByIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPackgeById", Namespace="http://tempuri.org/", Order=0)]
+        public Tema4MvcApp.AdminService.GetPackgeByIdRequestBody Body;
+        
+        public GetPackgeByIdRequest() {
+        }
+        
+        public GetPackgeByIdRequest(Tema4MvcApp.AdminService.GetPackgeByIdRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetPackgeByIdRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int id;
+        
+        public GetPackgeByIdRequestBody() {
+        }
+        
+        public GetPackgeByIdRequestBody(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetPackgeByIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetPackgeByIdResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Tema4MvcApp.AdminService.GetPackgeByIdResponseBody Body;
+        
+        public GetPackgeByIdResponse() {
+        }
+        
+        public GetPackgeByIdResponse(Tema4MvcApp.AdminService.GetPackgeByIdResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetPackgeByIdResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string GetPackgeByIdResult;
+        
+        public GetPackgeByIdResponseBody() {
+        }
+        
+        public GetPackgeByIdResponseBody(string GetPackgeByIdResult) {
+            this.GetPackgeByIdResult = GetPackgeByIdResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface AdminServiceSoapChannel : Tema4MvcApp.AdminService.AdminServiceSoap, System.ServiceModel.IClientChannel {
     }
@@ -580,12 +659,13 @@ namespace Tema4MvcApp.AdminService {
             return base.Channel.TrackPackage(request);
         }
         
-        public string TrackPackage(int packageId, string city, string time) {
+        public string TrackPackage(int packageId, string city, string time, bool track) {
             Tema4MvcApp.AdminService.TrackPackageRequest inValue = new Tema4MvcApp.AdminService.TrackPackageRequest();
             inValue.Body = new Tema4MvcApp.AdminService.TrackPackageRequestBody();
             inValue.Body.packageId = packageId;
             inValue.Body.city = city;
             inValue.Body.time = time;
+            inValue.Body.track = track;
             Tema4MvcApp.AdminService.TrackPackageResponse retVal = ((Tema4MvcApp.AdminService.AdminServiceSoap)(this)).TrackPackage(inValue);
             return retVal.Body.TrackPackageResult;
         }
@@ -595,12 +675,13 @@ namespace Tema4MvcApp.AdminService {
             return base.Channel.TrackPackageAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Tema4MvcApp.AdminService.TrackPackageResponse> TrackPackageAsync(int packageId, string city, string time) {
+        public System.Threading.Tasks.Task<Tema4MvcApp.AdminService.TrackPackageResponse> TrackPackageAsync(int packageId, string city, string time, bool track) {
             Tema4MvcApp.AdminService.TrackPackageRequest inValue = new Tema4MvcApp.AdminService.TrackPackageRequest();
             inValue.Body = new Tema4MvcApp.AdminService.TrackPackageRequestBody();
             inValue.Body.packageId = packageId;
             inValue.Body.city = city;
             inValue.Body.time = time;
+            inValue.Body.track = track;
             return ((Tema4MvcApp.AdminService.AdminServiceSoap)(this)).TrackPackageAsync(inValue);
         }
         
@@ -677,6 +758,31 @@ namespace Tema4MvcApp.AdminService {
             Tema4MvcApp.AdminService.GetAllUserNamesRequest inValue = new Tema4MvcApp.AdminService.GetAllUserNamesRequest();
             inValue.Body = new Tema4MvcApp.AdminService.GetAllUserNamesRequestBody();
             return ((Tema4MvcApp.AdminService.AdminServiceSoap)(this)).GetAllUserNamesAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Tema4MvcApp.AdminService.GetPackgeByIdResponse Tema4MvcApp.AdminService.AdminServiceSoap.GetPackgeById(Tema4MvcApp.AdminService.GetPackgeByIdRequest request) {
+            return base.Channel.GetPackgeById(request);
+        }
+        
+        public string GetPackgeById(int id) {
+            Tema4MvcApp.AdminService.GetPackgeByIdRequest inValue = new Tema4MvcApp.AdminService.GetPackgeByIdRequest();
+            inValue.Body = new Tema4MvcApp.AdminService.GetPackgeByIdRequestBody();
+            inValue.Body.id = id;
+            Tema4MvcApp.AdminService.GetPackgeByIdResponse retVal = ((Tema4MvcApp.AdminService.AdminServiceSoap)(this)).GetPackgeById(inValue);
+            return retVal.Body.GetPackgeByIdResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Tema4MvcApp.AdminService.GetPackgeByIdResponse> Tema4MvcApp.AdminService.AdminServiceSoap.GetPackgeByIdAsync(Tema4MvcApp.AdminService.GetPackgeByIdRequest request) {
+            return base.Channel.GetPackgeByIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Tema4MvcApp.AdminService.GetPackgeByIdResponse> GetPackgeByIdAsync(int id) {
+            Tema4MvcApp.AdminService.GetPackgeByIdRequest inValue = new Tema4MvcApp.AdminService.GetPackgeByIdRequest();
+            inValue.Body = new Tema4MvcApp.AdminService.GetPackgeByIdRequestBody();
+            inValue.Body.id = id;
+            return ((Tema4MvcApp.AdminService.AdminServiceSoap)(this)).GetPackgeByIdAsync(inValue);
         }
     }
 }

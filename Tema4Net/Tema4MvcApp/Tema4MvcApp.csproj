@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -256,13 +257,28 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <None Include="Service References\AdminService\AdminService.disco" />
-    <None Include="Service References\AdminService\configuration91.svcinfo" />
-    <None Include="Service References\AdminService\configuration.svcinfo" />
-    <None Include="Service References\AdminService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <None Include="Service References\AdminService\AdminService.wsdl" />
+    <Content Include="Service References\AdminService\Tema4MvcApp.AdminService.AddPackageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AdminService\Tema4MvcApp.AdminService.GetAllPackagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AdminService\Tema4MvcApp.AdminService.GetAllUserNamesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AdminService\Tema4MvcApp.AdminService.RemovePackageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AdminService\Tema4MvcApp.AdminService.TrackPackageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AdminService\Tema4MvcApp.AdminService.UpdatePackageStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\AdminService\Tema4MvcApp.AdminService.GetPackgeByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\LoginWebService\configuration91.svcinfo" />
     <None Include="Service References\LoginWebService\configuration.svcinfo" />
     <None Include="Service References\LoginWebService\Reference.svcmap">
@@ -272,6 +288,13 @@
     <None Include="Service References\PackageWebService\configuration91.svcinfo" />
     <None Include="Service References\PackageWebService\configuration.svcinfo" />
     <None Include="Service References\PackageWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AdminService\AdminService.disco" />
+    <None Include="Service References\AdminService\configuration91.svcinfo" />
+    <None Include="Service References\AdminService\configuration.svcinfo" />
+    <None Include="Service References\AdminService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -309,10 +332,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <None Include="Service References\AdminService\AdminService.wsdl" />
-    <Content Include="Service References\AdminService\Tema4MvcApp.AdminService.HelloWorldResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\LoginWebService\LoginWS.wsdl" />
     <None Include="Service References\LoginWebService\LoginWS.xsd">
       <SubType>Designer</SubType>
@@ -338,6 +357,12 @@
     </Content>
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Client\Register.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Client\Route.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\UpdateStatus.cshtml" />
+    <Content Include="Views\Admin\Route.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,9 +26,9 @@ public class AdminService : System.Web.Services.WebService
     [WebMethod]
     public string AddPackage(string sender, string receiver, string name, string description, string senderCity, string destinationCity)
     {
-        var senderId = _db.GetClientIdByName(sender);
-        var receiverId = _db.GetClientIdByName(receiver);
-        return _db.AddPackage(senderId, receiverId, name, description, senderCity, destinationCity);
+       // var senderId = _db.GetClientIdByName(sender);
+       // var receiverId = _db.GetClientIdByName(receiver);
+        return _db.AddPackage(Convert.ToInt32(sender), Convert.ToInt32(receiver), name, description, senderCity, destinationCity);
     }
 
     [WebMethod]
@@ -38,9 +38,9 @@ public class AdminService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string TrackPackage(int packageId, string city, string time)
+    public string TrackPackage(int packageId, string city, string time, bool track)
     {
-        return _db.TrackPackage(packageId, city, time);
+        return _db.TrackPackage(packageId, city, time, track);
     }
 
     [WebMethod]
@@ -59,5 +59,11 @@ public class AdminService : System.Web.Services.WebService
     public string GetAllUserNames()
     {
         return _db.GetAllUsernames();
+    }
+
+    [WebMethod]
+    public string GetPackgeById(int id)
+    {
+        return _db.GetPackageById(id);
     }
 }

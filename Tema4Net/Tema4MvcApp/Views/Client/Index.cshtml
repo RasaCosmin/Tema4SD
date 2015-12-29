@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Tema4MvcApp.Models.PackageModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h3>@ViewBag.Mess</h3>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idSender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idReceiver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.senderCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destinationCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tracking)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idSender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idReceiver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.senderCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destinationCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tracking)
+        </td>
+        <td>           
+            @Html.ActionLink("Status", "Route", new { id=item.id }) 
+        </td>
+    </tr>
+}
+
+</table>

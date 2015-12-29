@@ -201,13 +201,13 @@ namespace Tema4MvcApp.PackageWebService {
     public partial class getClientPackageRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int name;
+        public int clientId;
         
         public getClientPackageRequestBody() {
         }
         
-        public getClientPackageRequestBody(int name) {
-            this.name = name;
+        public getClientPackageRequestBody(int clientId) {
+            this.clientId = clientId;
         }
     }
     
@@ -329,10 +329,10 @@ namespace Tema4MvcApp.PackageWebService {
             return base.Channel.getClientPackage(request);
         }
         
-        public string getClientPackage(int name) {
+        public string getClientPackage(int clientId) {
             Tema4MvcApp.PackageWebService.getClientPackageRequest inValue = new Tema4MvcApp.PackageWebService.getClientPackageRequest();
             inValue.Body = new Tema4MvcApp.PackageWebService.getClientPackageRequestBody();
-            inValue.Body.name = name;
+            inValue.Body.clientId = clientId;
             Tema4MvcApp.PackageWebService.getClientPackageResponse retVal = ((Tema4MvcApp.PackageWebService.PackageWS)(this)).getClientPackage(inValue);
             return retVal.Body.@return;
         }
@@ -342,10 +342,10 @@ namespace Tema4MvcApp.PackageWebService {
             return base.Channel.getClientPackageAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Tema4MvcApp.PackageWebService.getClientPackageResponse> getClientPackageAsync(int name) {
+        public System.Threading.Tasks.Task<Tema4MvcApp.PackageWebService.getClientPackageResponse> getClientPackageAsync(int clientId) {
             Tema4MvcApp.PackageWebService.getClientPackageRequest inValue = new Tema4MvcApp.PackageWebService.getClientPackageRequest();
             inValue.Body = new Tema4MvcApp.PackageWebService.getClientPackageRequestBody();
-            inValue.Body.name = name;
+            inValue.Body.clientId = clientId;
             return ((Tema4MvcApp.PackageWebService.PackageWS)(this)).getClientPackageAsync(inValue);
         }
     }
