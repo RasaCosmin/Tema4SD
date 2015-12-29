@@ -7,6 +7,7 @@ package webservice;
 
 import com.google.gson.Gson;
 import dao.PackageDao;
+import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -21,10 +22,26 @@ public class PackageWS {
     /**
      * This is a sample web service operation
      */
-    @WebMethod(operationName = "Search")
+    @WebMethod(operationName = "getClientPackage")
     public String GetClientPackage(@WebParam(name = "name") int clientId) {
        PackageDao db = new PackageDao();
+       ArrayList packages = db.GetClientPackage(clientId);
        Gson gson  = new Gson();
-       return gson.toJson(db.GetClientPackage(1));
+       if(packages.size()>0)
+       return gson.toJson(packages);
+       else return "no element";
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "search")
+    public String search(@WebParam(name = "packageName") String packageName, @WebParam(name = "clientId") int clientId) {
+        PackageDao db = new PackageDao();
+       ArrayList packages = db.SearchClientPackage(packageName, clientId);
+       Gson gson  = new Gson();
+       if(packages.size()>0)
+       return gson.toJson(packages);
+       else return "no element";
     }
 }

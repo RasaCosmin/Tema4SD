@@ -39,7 +39,51 @@ public class PackageDao {
                 pack.setSenderCity(rs.getString("SenderCity"));
                 pack.setDestinationCity(rs.getString("DestinationCity"));
                 int track = rs.getInt("Tracked");
-                //pack.setTracking(rs.getInt("id"));
+                boolean tr = false;
+                if(track==1){
+                   tr = true;
+                }
+                pack.setTracking(tr);
+                
+                packages.add(pack);
+            }
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+        return packages;
+    }
+
+    public ArrayList SearchClientPackage(String packageName, int clientId) {
+        ArrayList<models.Package> packages = new ArrayList<models.Package>();
+        
+        try{
+            Connection conn = DbUtil.getConnection();
+            String query = "Select * from Package where (IdSender=? or IdReceiver=?) and Name like ?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, clientId);
+            pstmt.setInt(2, clientId);
+            pstmt.setString(3, "%"+packageName+"%");
+            
+            ResultSet rs = pstmt.executeQuery();
+            
+            while(rs.next())
+            {
+                models.Package pack = new models.Package();
+                pack.setId(rs.getInt("Id"));
+                pack.setIdSender(rs.getInt("IdSender"));
+                pack.setIdReceiver(rs.getInt("IdReceiver"));
+                pack.setName(rs.getString("Name"));
+                pack.setDescription(rs.getString("Description"));
+                pack.setSenderCity(rs.getString("SenderCity"));
+                pack.setDestinationCity(rs.getString("DestinationCity"));
+                int track = rs.getInt("Tracked");
+                boolean tr = false;
+                if(track==1){
+                   tr = true;
+                }
+                pack.setTracking(tr);
                 
                 packages.add(pack);
             }
