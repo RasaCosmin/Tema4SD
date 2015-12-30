@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.User;
 
 /**
@@ -81,6 +83,32 @@ public class UserDao {
             System.out.println(se);
         }
 
+        return user;
+    }
+
+    public User getUserById(int idClient) {
+       User user = new User();
+        try {
+            Connection conn = DbUtil.getConnection();
+            String query = "Select * from Users where Id=?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, idClient);
+                        
+            ResultSet rs = pstmt.executeQuery();
+            
+             if(rs.next())
+            {
+               user.setId(rs.getInt("Id"));
+                user.setUsername(rs.getString("Username"));
+                user.setPassword(rs.getString("Password"));
+                user.setRole(rs.getString("Role"));
+            }
+            
+        } catch (SQLException ex) {
+            user = null;
+            Logger.getLogger(PackageDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         return user;
     }
 }

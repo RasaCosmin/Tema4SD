@@ -15,37 +15,73 @@ namespace Tema4MvcApp.Controllers
         {
             var userId = Convert.ToInt32(Session["userId"]);
             var packageService = new PackageWebService.PackageWSClient();
+            var packages = new List<PackageModel>();
+            var packagesV = new List<PackageModelV>();
 
             if (string.IsNullOrEmpty(searchString))
             {
                 var result = packageService.getClientPackage(userId);
-                var packages = new List<PackageModel>();
+               
                 if (!result.Equals("no element"))
                 {
                     packages = JsonConvert.DeserializeObject<List<PackageModel>>(result);
+                    foreach(var p in packages)
+                    {
+                        var pack = new PackageModelV
+                        {
+                            id = p.id,
+                            description = p.description,
+                            destinationCity = p.destinationCity,
+                            name = p.name,
+                            senderCity = p.senderCity,
+                            tracking = p.tracking,
+                            Sender = packageService.getClientNameById(p.idSender),
+                            Receiver = packageService.getClientNameById(p.idReceiver)
+                        };
+
+                        packagesV.Add(pack);
+                    }
                 }
                 else
                 {
                     ViewBag.Mess = "You don't have any package!";
                 }
 
-                return View(packages);
+               
             }
             else
             {
                 var result = packageService.search(searchString, userId);
-                var packages = new List<PackageModel>();
+               
                 if (!result.Equals("no element"))
                 {
                     packages = JsonConvert.DeserializeObject<List<PackageModel>>(result);
+                    foreach (var p in packages)
+                    {
+                        var pack = new PackageModelV
+                        {
+                            id = p.id,
+                            description = p.description,
+                            destinationCity = p.destinationCity,
+                            name = p.name,
+                            senderCity = p.senderCity,
+                            tracking = p.tracking,
+                            Sender = packageService.getClientNameById(p.idSender),
+                            Receiver = packageService.getClientNameById(p.idReceiver)
+                        };
+
+                        packagesV.Add(pack);
+                    }
                 }
                 else
                 {
                     ViewBag.Mess = "You don't have any package!";
                 }
 
-                return View(packages);
+                
             }
+
+            return View(packagesV);
         }
 
         public ActionResult Route(int id)
@@ -53,15 +89,27 @@ namespace Tema4MvcApp.Controllers
             var packageService = new PackageWebService.PackageWSClient();
             var result = packageService.verifyStatus(id);
             var routes = new List<RouteModel>();
+            var routesV = new List<RouteModelV>();
             if (!result.Equals("no element"))
             {
                 routes = JsonConvert.DeserializeObject<List<RouteModel>>(result);
+                foreach (var r in routes)
+                {
+                    var route = new RouteModelV()
+                    {
+                        id = r.id,
+                        city = r.city,
+                        Package = packageService.getPackageNameById(r.idPackage),
+                        time = r.time
+                    };
+                    routesV.Add(route);
+                }
             }
             else
             {
                 ViewBag.Mess = "This package don't have any route";
             }
-            return View(routes);
+            return View(routesV);
         }
 
         public ActionResult Register()
@@ -75,10 +123,10 @@ namespace Tema4MvcApp.Controllers
             var login = new LoginWebService.LoginWSClient();
             var result = login.Register(user.username, user.password);
             if(!result.Equals("failed"))
-            return RedirectToAction("Index", "Login");
+                return RedirectToAction("Index", "Login");
 
             ViewBag.Mess = "Registration problem! Please try again!";
-            return View(user);
+                 return View(user);
         }
     }
 }

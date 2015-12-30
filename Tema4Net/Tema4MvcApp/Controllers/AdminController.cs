@@ -14,17 +14,40 @@ namespace Tema4MvcApp.Controllers
         public ActionResult Index()
         {
             var adminService = new AdminService.AdminServiceSoapClient();
+            var packageService = new PackageWebService.PackageWSClient();
             var result = adminService.GetAllPackages();
             var packages = new List<PackageModel>();
+            var packagesV = new List<PackageModelV>();
             if (!result.Equals("no elements"))
             {
                 packages = JsonConvert.DeserializeObject<List<PackageModel>>(result);
+                foreach (var p in packages)
+                {
+                    var pack = new PackageModelV
+                    {
+                        id = p.id,
+                        description = p.description,
+                        destinationCity = p.destinationCity,
+                        name = p.name,
+                        senderCity = p.senderCity,
+                        tracking = p.tracking,
+                        Sender = packageService.getClientNameById(p.idSender),
+                        Receiver = packageService.getClientNameById(p.idReceiver)
+                    };
+
+                    packagesV.Add(pack);
+                }
+                if (TempData["Mess"] != null) {
+                    ViewBag.Mess = TempData["Mess"].ToString();
+                    TempData.Remove("Mess");
+                }
             }
             else
             {
                 ViewBag.Mess = "There isn't any package";
             }
-            return View(packages);
+
+            return View(packagesV);
         }
 
         public ActionResult StartTracking(int id)
@@ -38,7 +61,7 @@ namespace Tema4MvcApp.Controllers
             }
             else
             {
-                ViewBag.Mess = "There isn't any package";
+                TempData["Mess"] = "There isn't any package";
             }
 
             return RedirectToAction("Index");
@@ -55,17 +78,27 @@ namespace Tema4MvcApp.Controllers
             }
             else
             {
-                ViewBag.Mess = "There isn't any package";
+                TempData["Mess"] = "There isn't any package";
             }
 
             return RedirectToAction("Index");
         }
 
-        public ActionResult UpdateStatus(int Id)
+        public ActionResult UpdateStatus(int id)
         {
+            var adminService = new AdminService.AdminServiceSoapClient();
+            var packageResult = adminService.GetPackgeById(id);
+            var package = JsonConvert.DeserializeObject<PackageModel>(packageResult);
+
+            if(!package.tracking)
+            {
+                TempData["Mess"] = "This package isn't tracked";
+                return RedirectToAction("Index");
+            }
+
             var route = new RouteModel()
             {
-                idPackage = Id,
+                idPackage = id,
                 time = DateTime.Now.ToString("HH:mm")
             };
             return View(route);
@@ -78,7 +111,7 @@ namespace Tema4MvcApp.Controllers
             var result = adminService.UpdatePackageStatus(route.idPackage, route.city, route.time);
             if (result.Equals("failed"))
             {
-                ViewBag.Mess = "Can't update the status";
+                TempData["Mess"] = "Can't update the status";
             }
             return RedirectToAction("Index");
         }
@@ -89,7 +122,7 @@ namespace Tema4MvcApp.Controllers
             var result = adminService.RemovePackage(id);
             if (result.Equals("failed"))
             {
-                ViewBag.Mess = "There isn't any package";
+                TempData["Mess"] = "There isn't any package";
             }
             return RedirectToAction("Index");
         }
@@ -99,16 +132,28 @@ namespace Tema4MvcApp.Controllers
             var packageService = new PackageWebService.PackageWSClient();
             var result = packageService.verifyStatus(id);
             var routes = new List<RouteModel>();
+            var routesV = new List<RouteModelV>();
             if (!result.Equals("no element"))
             {
                 routes = JsonConvert.DeserializeObject<List<RouteModel>>(result);
+                foreach(var r in routes)
+                {
+                    var route = new RouteModelV()
+                    {
+                        id = r.id,
+                        city = r.city,
+                        Package = packageService.getPackageNameById(r.idPackage),
+                        time = r.time
+                    };
+                    routesV.Add(route);
+                }
             }
             else
             {
                 ViewBag.Mess = "This package don't have any route";
             }
             ViewBag.PackageId = id;
-            return View(routes);
+            return View(routesV);
         }
 
         public ActionResult Create()

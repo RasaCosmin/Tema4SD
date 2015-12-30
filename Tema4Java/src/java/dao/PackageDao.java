@@ -8,7 +8,10 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import models.*;
 
 /**
@@ -123,5 +126,41 @@ public class PackageDao {
         
         
         return routes;
+    }
+
+    public models.Package getPackageById(int idPackage) {
+        models.Package pack = new models.Package();
+        try {
+            Connection conn = DbUtil.getConnection();
+            String query = "Select * from Package where Id=?";
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setInt(1, idPackage);
+                        
+            ResultSet rs = pstmt.executeQuery();
+            
+             if(rs.next())
+            {
+                pack = new models.Package();
+                pack.setId(rs.getInt("Id"));
+                pack.setIdSender(rs.getInt("IdSender"));
+                pack.setIdReceiver(rs.getInt("IdReceiver"));
+                pack.setName(rs.getString("Name"));
+                pack.setDescription(rs.getString("Description"));
+                pack.setSenderCity(rs.getString("SenderCity"));
+                pack.setDestinationCity(rs.getString("DestinationCity"));
+                int track = rs.getInt("Tracked");
+                boolean tr = false;
+                if(track==1){
+                   tr = true;
+                }
+                pack.setTracking(tr);
+            }
+            
+        } catch (SQLException ex) {
+            pack = null;
+            Logger.getLogger(PackageDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return pack;
     }
 }

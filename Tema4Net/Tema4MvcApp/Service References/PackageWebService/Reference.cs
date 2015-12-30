@@ -35,6 +35,20 @@ namespace Tema4MvcApp.PackageWebService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://webservice/PackageWS/getClientPackageRequest", ReplyAction="http://webservice/PackageWS/getClientPackageResponse")]
         System.Threading.Tasks.Task<Tema4MvcApp.PackageWebService.getClientPackageResponse> getClientPackageAsync(Tema4MvcApp.PackageWebService.getClientPackageRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/PackageWS/getClientNameByIdRequest", ReplyAction="http://webservice/PackageWS/getClientNameByIdResponse")]
+        Tema4MvcApp.PackageWebService.getClientNameByIdResponse getClientNameById(Tema4MvcApp.PackageWebService.getClientNameByIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/PackageWS/getClientNameByIdRequest", ReplyAction="http://webservice/PackageWS/getClientNameByIdResponse")]
+        System.Threading.Tasks.Task<Tema4MvcApp.PackageWebService.getClientNameByIdResponse> getClientNameByIdAsync(Tema4MvcApp.PackageWebService.getClientNameByIdRequest request);
+        
+        // CODEGEN: Generating message contract since element name return from namespace  is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/PackageWS/getPackageNameByIdRequest", ReplyAction="http://webservice/PackageWS/getPackageNameByIdResponse")]
+        Tema4MvcApp.PackageWebService.getPackageNameByIdResponse getPackageNameById(Tema4MvcApp.PackageWebService.getPackageNameByIdRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://webservice/PackageWS/getPackageNameByIdRequest", ReplyAction="http://webservice/PackageWS/getPackageNameByIdResponse")]
+        System.Threading.Tasks.Task<Tema4MvcApp.PackageWebService.getPackageNameByIdResponse> getPackageNameByIdAsync(Tema4MvcApp.PackageWebService.getPackageNameByIdRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -245,6 +259,142 @@ namespace Tema4MvcApp.PackageWebService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getClientNameByIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getClientNameById", Namespace="http://webservice/", Order=0)]
+        public Tema4MvcApp.PackageWebService.getClientNameByIdRequestBody Body;
+        
+        public getClientNameByIdRequest() {
+        }
+        
+        public getClientNameByIdRequest(Tema4MvcApp.PackageWebService.getClientNameByIdRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getClientNameByIdRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int idClient;
+        
+        public getClientNameByIdRequestBody() {
+        }
+        
+        public getClientNameByIdRequestBody(int idClient) {
+            this.idClient = idClient;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getClientNameByIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getClientNameByIdResponse", Namespace="http://webservice/", Order=0)]
+        public Tema4MvcApp.PackageWebService.getClientNameByIdResponseBody Body;
+        
+        public getClientNameByIdResponse() {
+        }
+        
+        public getClientNameByIdResponse(Tema4MvcApp.PackageWebService.getClientNameByIdResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getClientNameByIdResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public getClientNameByIdResponseBody() {
+        }
+        
+        public getClientNameByIdResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getPackageNameByIdRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getPackageNameById", Namespace="http://webservice/", Order=0)]
+        public Tema4MvcApp.PackageWebService.getPackageNameByIdRequestBody Body;
+        
+        public getPackageNameByIdRequest() {
+        }
+        
+        public getPackageNameByIdRequest(Tema4MvcApp.PackageWebService.getPackageNameByIdRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getPackageNameByIdRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int idPackage;
+        
+        public getPackageNameByIdRequestBody() {
+        }
+        
+        public getPackageNameByIdRequestBody(int idPackage) {
+            this.idPackage = idPackage;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class getPackageNameByIdResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="getPackageNameByIdResponse", Namespace="http://webservice/", Order=0)]
+        public Tema4MvcApp.PackageWebService.getPackageNameByIdResponseBody Body;
+        
+        public getPackageNameByIdResponse() {
+        }
+        
+        public getPackageNameByIdResponse(Tema4MvcApp.PackageWebService.getPackageNameByIdResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class getPackageNameByIdResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public getPackageNameByIdResponseBody() {
+        }
+        
+        public getPackageNameByIdResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface PackageWSChannel : Tema4MvcApp.PackageWebService.PackageWS, System.ServiceModel.IClientChannel {
     }
@@ -347,6 +497,56 @@ namespace Tema4MvcApp.PackageWebService {
             inValue.Body = new Tema4MvcApp.PackageWebService.getClientPackageRequestBody();
             inValue.Body.clientId = clientId;
             return ((Tema4MvcApp.PackageWebService.PackageWS)(this)).getClientPackageAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Tema4MvcApp.PackageWebService.getClientNameByIdResponse Tema4MvcApp.PackageWebService.PackageWS.getClientNameById(Tema4MvcApp.PackageWebService.getClientNameByIdRequest request) {
+            return base.Channel.getClientNameById(request);
+        }
+        
+        public string getClientNameById(int idClient) {
+            Tema4MvcApp.PackageWebService.getClientNameByIdRequest inValue = new Tema4MvcApp.PackageWebService.getClientNameByIdRequest();
+            inValue.Body = new Tema4MvcApp.PackageWebService.getClientNameByIdRequestBody();
+            inValue.Body.idClient = idClient;
+            Tema4MvcApp.PackageWebService.getClientNameByIdResponse retVal = ((Tema4MvcApp.PackageWebService.PackageWS)(this)).getClientNameById(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Tema4MvcApp.PackageWebService.getClientNameByIdResponse> Tema4MvcApp.PackageWebService.PackageWS.getClientNameByIdAsync(Tema4MvcApp.PackageWebService.getClientNameByIdRequest request) {
+            return base.Channel.getClientNameByIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Tema4MvcApp.PackageWebService.getClientNameByIdResponse> getClientNameByIdAsync(int idClient) {
+            Tema4MvcApp.PackageWebService.getClientNameByIdRequest inValue = new Tema4MvcApp.PackageWebService.getClientNameByIdRequest();
+            inValue.Body = new Tema4MvcApp.PackageWebService.getClientNameByIdRequestBody();
+            inValue.Body.idClient = idClient;
+            return ((Tema4MvcApp.PackageWebService.PackageWS)(this)).getClientNameByIdAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Tema4MvcApp.PackageWebService.getPackageNameByIdResponse Tema4MvcApp.PackageWebService.PackageWS.getPackageNameById(Tema4MvcApp.PackageWebService.getPackageNameByIdRequest request) {
+            return base.Channel.getPackageNameById(request);
+        }
+        
+        public string getPackageNameById(int idPackage) {
+            Tema4MvcApp.PackageWebService.getPackageNameByIdRequest inValue = new Tema4MvcApp.PackageWebService.getPackageNameByIdRequest();
+            inValue.Body = new Tema4MvcApp.PackageWebService.getPackageNameByIdRequestBody();
+            inValue.Body.idPackage = idPackage;
+            Tema4MvcApp.PackageWebService.getPackageNameByIdResponse retVal = ((Tema4MvcApp.PackageWebService.PackageWS)(this)).getPackageNameById(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Tema4MvcApp.PackageWebService.getPackageNameByIdResponse> Tema4MvcApp.PackageWebService.PackageWS.getPackageNameByIdAsync(Tema4MvcApp.PackageWebService.getPackageNameByIdRequest request) {
+            return base.Channel.getPackageNameByIdAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Tema4MvcApp.PackageWebService.getPackageNameByIdResponse> getPackageNameByIdAsync(int idPackage) {
+            Tema4MvcApp.PackageWebService.getPackageNameByIdRequest inValue = new Tema4MvcApp.PackageWebService.getPackageNameByIdRequest();
+            inValue.Body = new Tema4MvcApp.PackageWebService.getPackageNameByIdRequestBody();
+            inValue.Body.idPackage = idPackage;
+            return ((Tema4MvcApp.PackageWebService.PackageWS)(this)).getPackageNameByIdAsync(inValue);
         }
     }
 }

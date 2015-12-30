@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tema4MvcApp.Models.PackageModel>
+﻿@model IEnumerable<Tema4MvcApp.Models.PackageModelV>
 
 @{
     ViewBag.Title = "Index";
@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idSender)
+            @Html.DisplayNameFor(model => model.Sender)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idReceiver)
+            @Html.DisplayNameFor(model => model.Receiver)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.name)
@@ -38,10 +38,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.idSender)
+            @Html.DisplayFor(modelItem => item.Sender)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.idReceiver)
+            @Html.DisplayFor(modelItem => item.Receiver)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.name)

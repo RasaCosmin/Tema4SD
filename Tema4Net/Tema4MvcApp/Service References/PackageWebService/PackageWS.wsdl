@@ -23,6 +23,18 @@
   <message name="getClientPackageResponse">
     <part name="parameters" element="tns:getClientPackageResponse" />
   </message>
+  <message name="getClientNameById">
+    <part name="parameters" element="tns:getClientNameById" />
+  </message>
+  <message name="getClientNameByIdResponse">
+    <part name="parameters" element="tns:getClientNameByIdResponse" />
+  </message>
+  <message name="getPackageNameById">
+    <part name="parameters" element="tns:getPackageNameById" />
+  </message>
+  <message name="getPackageNameByIdResponse">
+    <part name="parameters" element="tns:getPackageNameByIdResponse" />
+  </message>
   <portType name="PackageWS">
     <operation name="search">
       <input wsam:Action="http://webservice/PackageWS/searchRequest" message="tns:search" />
@@ -35,6 +47,14 @@
     <operation name="getClientPackage">
       <input wsam:Action="http://webservice/PackageWS/getClientPackageRequest" message="tns:getClientPackage" />
       <output wsam:Action="http://webservice/PackageWS/getClientPackageResponse" message="tns:getClientPackageResponse" />
+    </operation>
+    <operation name="getClientNameById">
+      <input wsam:Action="http://webservice/PackageWS/getClientNameByIdRequest" message="tns:getClientNameById" />
+      <output wsam:Action="http://webservice/PackageWS/getClientNameByIdResponse" message="tns:getClientNameByIdResponse" />
+    </operation>
+    <operation name="getPackageNameById">
+      <input wsam:Action="http://webservice/PackageWS/getPackageNameByIdRequest" message="tns:getPackageNameById" />
+      <output wsam:Action="http://webservice/PackageWS/getPackageNameByIdResponse" message="tns:getPackageNameByIdResponse" />
     </operation>
   </portType>
   <binding name="PackageWSPortBinding" type="tns:PackageWS">
@@ -58,6 +78,24 @@
       </output>
     </operation>
     <operation name="getClientPackage">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getClientNameById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getPackageNameById">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

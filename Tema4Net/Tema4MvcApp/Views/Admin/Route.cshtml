@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tema4MvcApp.Models.RouteModel>
+﻿@model IEnumerable<Tema4MvcApp.Models.RouteModelV>
 
 @{
     ViewBag.Title = "Route";
@@ -9,9 +9,9 @@
 
 <table class="table">
     <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.idPackage)
-        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Package)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.city)
         </th>
@@ -23,9 +23,9 @@
 
 @foreach (var item in Model) {
     <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.idPackage)
-        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Package)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.city)
         </td>
@@ -40,3 +40,6 @@
     @Html.ActionLink("Update Status", "UpdateStatus", new { id = ViewBag.PackageId })
 
 </table>
+<div>
+@Html.ActionLink("Back to List", "Index")
+</div>

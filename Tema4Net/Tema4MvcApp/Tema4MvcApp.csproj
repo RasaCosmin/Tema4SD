@@ -210,6 +210,8 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ModelForView\PackageModelV.cs" />
+    <Compile Include="Models\ModelForView\RouteModelV.cs" />
     <Compile Include="Models\PackageModel.cs" />
     <Compile Include="Models\RouteModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -363,6 +365,12 @@
     <Content Include="Views\Admin\UpdateStatus.cshtml" />
     <Content Include="Views\Admin\Route.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Service References\PackageWebService\Tema4MvcApp.PackageWebService.getClientNameByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\PackageWebService\Tema4MvcApp.PackageWebService.getPackageNameByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

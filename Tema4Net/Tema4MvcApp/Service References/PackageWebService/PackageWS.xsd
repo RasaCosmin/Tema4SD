@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://webservice/" targetNamespace="http://webservice/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="getClientNameById" type="tns:getClientNameById" />
+  <xs:element name="getClientNameByIdResponse" type="tns:getClientNameByIdResponse" />
   <xs:element name="getClientPackage" type="tns:getClientPackage" />
   <xs:element name="getClientPackageResponse" type="tns:getClientPackageResponse" />
+  <xs:element name="getPackageNameById" type="tns:getPackageNameById" />
+  <xs:element name="getPackageNameByIdResponse" type="tns:getPackageNameByIdResponse" />
   <xs:element name="search" type="tns:search" />
   <xs:element name="searchResponse" type="tns:searchResponse" />
   <xs:element name="verifyStatus" type="tns:verifyStatus" />
@@ -33,6 +37,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="searchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getClientNameById">
+    <xs:sequence>
+      <xs:element name="idClient" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getClientNameByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPackageNameById">
+    <xs:sequence>
+      <xs:element name="idPackage" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPackageNameByIdResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>

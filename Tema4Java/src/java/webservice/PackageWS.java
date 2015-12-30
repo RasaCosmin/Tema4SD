@@ -7,10 +7,12 @@ package webservice;
 
 import com.google.gson.Gson;
 import dao.PackageDao;
+import dao.UserDao;
 import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import models.User;
 
 /**
  *
@@ -56,5 +58,26 @@ public class PackageWS {
        if(statuses.size()>0)
        return gson.toJson(statuses);
        else return "no element";
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getPackageNameById")
+    public String getPackageNameById(@WebParam(name = "idPackage") int idPackage) {
+        PackageDao db = new PackageDao();
+        models.Package p = db.getPackageById(idPackage);
+        if(p!=null)
+        return p.getName();
+        else return "no element";
+    }
+    
+    @WebMethod(operationName = "getClientNameById")
+    public String getClientNameById(@WebParam(name = "idClient") int idClient) {
+        UserDao db = new UserDao();
+        User user = db.getUserById(idClient);
+        if(user!=null)
+        return user.getUsername();
+        else return "no element";
     }
 }
