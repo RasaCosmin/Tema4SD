@@ -7,6 +7,21 @@
 <h2>Index</h2>
 <h3>@ViewBag.Mess</h3>
 
+@using (Html.BeginForm())
+{
+    <p>
+        Package Name: @Html.TextBox("SearchString") <br />
+        <input type="submit" value="Search" />
+      
+    </p>
+}
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Cancel Search" />
+    </p>
+}
+
 
 <table class="table">
     <tr>
@@ -34,33 +49,34 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idSender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idReceiver)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.senderCity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.destinationCity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tracking)
-        </td>
-        <td>           
-            @Html.ActionLink("Status", "Route", new { id=item.id }) 
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idSender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idReceiver)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.senderCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.destinationCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tracking)
+            </td>
+            <td>
+                @Html.ActionLink("Status", "Route", new { id = item.id })
+            </td>
+        </tr>
+    }
 
 </table>

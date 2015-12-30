@@ -11,23 +11,41 @@ namespace Tema4MvcApp.Controllers
     public class ClientController : Controller
     {
         // GET: Client
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var userId = Convert.ToInt32(Session["userId"]);
-
             var packageService = new PackageWebService.PackageWSClient();
-            var result = packageService.getClientPackage(userId);
-            var packages = new List<PackageModel>();
-            if (!result.Equals("no element"))
+
+            if (string.IsNullOrEmpty(searchString))
             {
-                packages = JsonConvert.DeserializeObject<List<PackageModel>>(result);
+                var result = packageService.getClientPackage(userId);
+                var packages = new List<PackageModel>();
+                if (!result.Equals("no element"))
+                {
+                    packages = JsonConvert.DeserializeObject<List<PackageModel>>(result);
+                }
+                else
+                {
+                    ViewBag.Mess = "You don't have any package!";
+                }
+
+                return View(packages);
             }
             else
             {
-                ViewBag.Mess = "You don't have any package!";
-            }
+                var result = packageService.search(searchString, userId);
+                var packages = new List<PackageModel>();
+                if (!result.Equals("no element"))
+                {
+                    packages = JsonConvert.DeserializeObject<List<PackageModel>>(result);
+                }
+                else
+                {
+                    ViewBag.Mess = "You don't have any package!";
+                }
 
-            return View(packages);
+                return View(packages);
+            }
         }
 
         public ActionResult Route(int id)
